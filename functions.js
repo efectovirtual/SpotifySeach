@@ -5,7 +5,7 @@ var buscarSpotify = function(busquedaQ) {
 
   var template = Handlebars.compile($('#contenido-spotify').html());
  
-  var accessToken = 'BQAoIsZLZv5d0w7XSZBDhbaahAD3Vyvv4SIm41FWIkqqAPWLYp5jdMmuwnpuKbJwhbMLRFkHdajA9s7k8KBe-q-fpfqVYtEGTG7SkRVtOXNVFTSmJNc_G5kMKWnLmsrwBqxT6fzB6QB9DpMjW2xaSNhiReXzYhTJJEBHNUE';
+  var accessToken = 'BQA4xjicMqmim33ExpEpSNWVyqMXOJYaoa2dRTgQczTjPAR7ZeL_0tBoJFtJUF0DuS-iPCPRDnXIxjdSz82NPCucaelBUhcYwyvyNhOSgpmw1Yuj8BeHt_n2se9Ci13eNVDW3mIDJO89H8xQciCJYYeUaa3BWbYTIDjCThk';
 
    $.ajax({
      url: 'https://api.spotify.com/v1/search',
@@ -17,11 +17,10 @@ var buscarSpotify = function(busquedaQ) {
      },                    
      success: function(data) {   
 
-        $('.content').append(template(data));
+        $('.content').append(template({sPreview : data.tracks.items}));
                       
      }
   }); 
-
 
 }
 
